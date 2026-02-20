@@ -1,0 +1,521 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: "Arial", "Helvetica", sans-serif;
+  background: linear-gradient(135deg, #0a0e27 0%, #16213e 100%);
+  background-attachment: fixed;
+  color: #e0e0e0;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.bg-animated {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 30%, rgba(0, 210, 106, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(255, 214, 0, 0.1) 0%, transparent 50%);
+  animation: bgShift 12s ease-in-out infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+@keyframes bgShift {
+  0%, 100% {
+    background: radial-gradient(circle at 20% 30%, rgba(0, 210, 106, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(255, 214, 0, 0.1) 0%, transparent 50%);
+  }
+  50% {
+    background: radial-gradient(circle at 80% 30%, rgba(0, 210, 106, 0.1) 0%, transparent 50%), radial-gradient(circle at 20% 70%, rgba(255, 214, 0, 0.1) 0%, transparent 50%);
+  }
+}
+
+.scrim-header {
+  background: linear-gradient(135deg, rgba(26, 31, 58, 0.95) 0%, rgba(20, 40, 60, 0.95) 100%);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 2px solid rgba(0, 210, 106, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 210, 106, 0.3);
+  animation: slideDown 0.8s ease-out;
+}
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #00d26a;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.logo i {
+  font-size: 1.8rem;
+  animation: bounce 2s ease-in-out infinite;
+}
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.header-nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: #b0b0b0;
+  text-decoration: none;
+  font-weight: bold;
+  position: relative;
+  padding: 0.5rem 0;
+  transition: all 0.3s ease;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #00d26a;
+  transition: all 0.3s ease;
+}
+.nav-link:hover, .nav-link.active {
+  color: #00d26a;
+}
+.nav-link:hover::after, .nav-link.active::after {
+  width: 100%;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.scrim-hero {
+  position: relative;
+  text-align: center;
+  margin-bottom: 4rem;
+  padding: 3rem 2rem;
+  animation: fadeInUp 1s ease-out;
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-title {
+  background: linear-gradient(135deg, #00d26a 0%, #ffd600 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.hero-title i {
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: #b0b0b0;
+  margin-bottom: 1.5rem;
+}
+
+.hero-decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+.shape.shape-1 {
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(0, 210, 106, 0.1), transparent);
+  top: -50px;
+  left: 10%;
+  animation-delay: 0s;
+}
+.shape.shape-2 {
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(255, 214, 0, 0.1), transparent);
+  bottom: -30px;
+  right: 15%;
+  animation-delay: 2s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+}
+.section-title {
+  background: linear-gradient(135deg, #00d26a 0%, #ffd600 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.section-title i {
+  font-size: 1.8rem;
+}
+
+.scrim-form-section {
+  background: linear-gradient(135deg, rgba(26, 31, 58, 0.8) 0%, rgba(30, 40, 60, 0.8) 100%);
+  border: 2px solid rgba(0, 210, 106, 0.2);
+  border-radius: 15px;
+  padding: 2.5rem;
+  margin-bottom: 3rem;
+  animation: fadeInUp 0.8s ease-out 0.2s backwards;
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scrim-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.form-group label {
+  font-weight: bold;
+  color: #00d26a;
+  font-size: 1.05rem;
+}
+.form-group input, .form-group select, .form-group textarea {
+  padding: 0.8rem 1rem 0.8rem 2.5rem;
+  background: rgba(0, 210, 106, 0.05);
+  border: 2px solid rgba(0, 210, 106, 0.2);
+  border-radius: 8px;
+  color: #e0e0e0;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  outline: none;
+  border-color: #00d26a;
+  background: rgba(0, 210, 106, 0.1);
+  box-shadow: 0 0 20px rgba(0, 210, 106, 0.3);
+}
+.form-group input::-moz-placeholder, .form-group select::-moz-placeholder, .form-group textarea::-moz-placeholder {
+  color: #666;
+}
+.form-group input::placeholder, .form-group select::placeholder, .form-group textarea::placeholder {
+  color: #666;
+}
+.form-group textarea {
+  resize: vertical;
+  padding: 1rem;
+}
+
+.form-icon {
+  position: absolute;
+  left: 1rem;
+  top: 2.2rem;
+  color: #00d26a;
+  pointer-events: none;
+}
+
+.btn {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+}
+.btn.btn-primary {
+  background: linear-gradient(135deg, #00d26a 0%, #00a84f 100%);
+  color: #fff;
+  box-shadow: 0 4px 30px rgba(0, 210, 106, 0.4);
+  width: 100%;
+  justify-content: center;
+}
+.btn.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 30px rgba(0, 210, 106, 0.6);
+}
+.btn.btn-small {
+  padding: 0.6rem 1rem;
+  font-size: 0.85rem;
+  flex: 1;
+}
+.btn.btn-accept {
+  background: #00d26a;
+  color: #000;
+}
+.btn.btn-accept:hover {
+  background: #00a84f;
+}
+.btn.btn-reject {
+  background: #ff4444;
+  color: #fff;
+}
+.btn.btn-reject:hover {
+  background: #dd0000;
+}
+
+.scrim-requests-section {
+  animation: fadeInUp 0.8s ease-out 0.4s backwards;
+}
+
+.requests-container {
+  background: linear-gradient(135deg, rgba(26, 31, 58, 0.8) 0%, rgba(30, 40, 60, 0.8) 100%);
+  border: 2px solid rgba(0, 210, 106, 0.2);
+  border-radius: 15px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+.requests-container:last-child {
+  margin-bottom: 0;
+}
+
+.requests-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid rgba(0, 210, 106, 0.2);
+}
+.requests-header h3 {
+  font-size: 1.3rem;
+  color: #00d26a;
+}
+
+.badge {
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+.badge.badge-received {
+  background: rgba(0, 210, 106, 0.2);
+  color: #00d26a;
+}
+.badge.badge-sent {
+  background: rgba(255, 214, 0, 0.2);
+  color: #ffd600;
+}
+
+.requests-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.request-card {
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-left: 4px solid #00d26a;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  animation: slideIn 0.4s ease-out;
+}
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.request-card:hover {
+  transform: translateX(10px);
+  box-shadow: 0 4px 30px rgba(0, 210, 106, 0.2);
+}
+.request-card.request-accepted {
+  border-left-color: #00d26a;
+}
+.request-card.request-rejected {
+  border-left-color: #ff4444;
+}
+.request-card.request-pending {
+  border-left-color: #ffd600;
+}
+
+.request-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+.request-header h4 {
+  font-size: 1.2rem;
+  color: #e0e0e0;
+}
+
+.status-badge {
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+.status-badge.pending {
+  background: rgba(255, 214, 0, 0.2);
+  color: #ffd600;
+}
+.status-badge.accepted {
+  background: rgba(0, 210, 106, 0.2);
+  color: #00d26a;
+}
+.status-badge.rejected {
+  background: rgba(255, 68, 68, 0.2);
+  color: #ff6464;
+}
+
+.request-time {
+  font-size: 0.9rem;
+  color: #b0b0b0;
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.request-message {
+  color: #b0b0b0;
+  margin-bottom: 1.2rem;
+  padding: 0.8rem;
+  background: rgba(0, 210, 106, 0.05);
+  border-radius: 6px;
+}
+
+.request-actions {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.scrim-main {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  .header-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .header-nav {
+    gap: 1rem;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .scrim-form-section,
+  .requests-container {
+    padding: 1.5rem;
+  }
+  .request-actions {
+    flex-direction: column;
+  }
+  .btn-small {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.8rem;
+  }
+  .container {
+    padding: 1rem;
+  }
+}/*# sourceMappingURL=scrim.css.map */
