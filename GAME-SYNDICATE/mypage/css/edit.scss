@@ -1,0 +1,600 @@
+/* ========================================
+   EDIT PAGE STYLES
+   ======================================== */
+
+/* 編集ページヘッダー */
+
+.edit-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  color: #aaa;
+  font-weight: 600;
+  transition: 0.3s;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+  }
+}
+
+.edit-header h1 {
+  font-size: 2rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+
+  i {
+    color: #ff0078;
+  }
+}
+
+/* 編集ラッパー */
+
+.edit-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* フォームコンテナ */
+
+.edit-form-container {
+  background: rgba(26, 31, 58, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 25px;
+  animation: fadeInUp 0.5s ease-out;
+
+  h3 {
+    color: #ff0078;
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid rgba(255, 0, 120, 0.2);
+  }
+}
+
+/* 編集セクション */
+
+.edit-section {
+  margin-bottom: 30px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  h3 {
+    color: #4a9eff;
+    font-size: 1.15rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+/* フォームグループ */
+
+.form-group {
+  margin-bottom: 20px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  label {
+    display: block;
+    font-size: 0.95rem;
+    color: #b0b0b0;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+
+  input {
+    &[type="text"], &[type="email"], &[type="date"], &[type="url"] {
+      width: 100%;
+      padding: 12px 16px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      color: #e0e0e0;
+      font-size: 1rem;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      transition: all 0.3s;
+    }
+  }
+
+  select, textarea {
+    width: 100%;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #e0e0e0;
+    font-size: 1rem;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    transition: all 0.3s;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #4a9eff;
+    background: rgba(74, 158, 255, 0.1);
+    box-shadow: 0 0 0 3px rgba(74, 158, 255, 0.2);
+  }
+
+  select {
+    cursor: pointer;
+  }
+
+  input[type="file"] {
+    display: none;
+  }
+
+  textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+
+  label input[type="checkbox"] {
+    margin-left: 15px;
+    margin-right: 5px;
+    width: 18px;
+    height: 18px;
+    accent-color: #4a9eff;
+    cursor: pointer;
+  }
+}
+
+/* チェックボックスインラインラベル */
+
+/* ゲームタブ */
+
+.game-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.game-tab {
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #888;
+  transition: 0.3s;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid transparent;
+
+  &:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  &.active {
+    background: rgba(255, 0, 120, 0.15);
+    color: #ff0078;
+    border-color: #ff0078;
+    box-shadow: 0 0 15px rgba(255, 0, 120, 0.3);
+  }
+}
+
+/* ゲームフォームセクション */
+
+.game-form-section {
+  display: none;
+  animation: fadeIn 0.3s ease;
+
+  &.active {
+    display: block;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* チェックボックスグリッド */
+
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.cb-item {
+  position: relative;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  label {
+    display: block;
+    padding: 10px 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    text-align: center;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+    font-weight: 500;
+  }
+
+  input:checked + label {
+    background: rgba(74, 158, 255, 0.2);
+    border-color: #4a9eff;
+    color: #fff;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(74, 158, 255, 0.4);
+  }
+
+  label:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+  }
+}
+
+/* トースト通知 */
+
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #00b09b, #96c93d);
+  color: #fff;
+  padding: 15px 25px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+  transform: translateX(120%);
+  transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  &.show {
+    transform: translateX(0);
+  }
+
+  &.error {
+    background: linear-gradient(135deg, #ff5f6d, #ffc371);
+  }
+}
+
+/* プロフィールチェックボックスグリッド */
+
+.profile-checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 12px;
+  margin-top: 15px;
+}
+
+/* ロール選択グリッド */
+
+.profile-role-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+  margin-top: 15px;
+
+  .checkbox-item {
+    padding: 14px;
+  }
+}
+
+/* エージェント選択グリッド */
+
+.profile-agent-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 10px;
+  margin-top: 15px;
+
+  .checkbox-item {
+    padding: 10px 12px;
+
+    label {
+      font-size: 0.88rem !important;
+    }
+  }
+}
+
+/* プライバシー設定 */
+
+.privacy-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.privacy-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  background: rgba(74, 158, 255, 0.05);
+  border: 2px solid rgba(74, 158, 255, 0.2);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: slideInLeft 0.3s ease forwards;
+  opacity: 0;
+
+  &:nth-child(1) {
+    animation-delay: 0s;
+  }
+
+  &:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+
+  &:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+
+  &:nth-child(4) {
+    animation-delay: 0.3s;
+  }
+
+  &:hover {
+    background: rgba(74, 158, 255, 0.1);
+    border-color: rgba(74, 158, 255, 0.4);
+    transform: translateX(5px);
+  }
+
+  input[type="checkbox"] {
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+    cursor: pointer;
+    accent-color: #4a9eff;
+    margin: 0;
+  }
+
+  label {
+    cursor: pointer;
+    margin: 0 !important;
+    font-weight: 500 !important;
+    color: #e0e0e0 !important;
+    font-size: 1rem !important;
+    flex: 1;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px;
+
+    i {
+      color: #4a9eff;
+      font-size: 1.1rem;
+    }
+  }
+
+  input[type="checkbox"]:checked + label {
+    color: #4a9eff !important;
+    font-weight: 600 !important;
+  }
+
+  &:has(input[type="checkbox"]:checked) {
+    background: rgba(74, 158, 255, 0.15);
+    border-color: #4a9eff;
+    box-shadow: 0 0 15px rgba(74, 158, 255, 0.3);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* アバタープレビュー */
+
+.preview-avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid #4a9eff;
+  background: linear-gradient(135deg, rgba(74, 158, 255, 0.2), rgba(74, 158, 255, 0.1));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(74, 158, 255, 0.4);
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  i {
+    font-size: 4.5rem;
+    color: #4a9eff;
+  }
+}
+
+/* ファイルアップロードエリア */
+
+.file-upload-area {
+  position: relative;
+  margin-top: 10px;
+}
+
+.file-upload-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px;
+  background: linear-gradient(135deg, rgba(74, 158, 255, 0.1), rgba(74, 158, 255, 0.05));
+  border: 2px dashed rgba(74, 158, 255, 0.5);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #4a9eff;
+  font-weight: 600;
+
+  &:hover {
+    background: linear-gradient(135deg, rgba(74, 158, 255, 0.2), rgba(74, 158, 255, 0.1));
+    border-color: #4a9eff;
+    border-style: solid;
+    transform: translateY(-2px);
+  }
+
+  i {
+    font-size: 1.3rem;
+  }
+}
+
+/* 入力ヒント */
+
+.input-hint {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 8px;
+  padding: 10px;
+  background: rgba(74, 158, 255, 0.05);
+  border-left: 3px solid #4a9eff;
+  border-radius: 6px;
+
+  i {
+    color: #4a9eff;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #b0b0b0;
+    line-height: 1.5;
+  }
+}
+
+/* セクション区切り線 */
+
+.section-divider {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(74, 158, 255, 0.3), transparent);
+  margin: 30px 0;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 1024px) {
+  .profile-checkbox-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+
+  .profile-role-grid {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  }
+
+  .profile-agent-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+
+  .checkbox-grid {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .edit-header {
+    flex-direction: column;
+    align-items: flex-start;
+
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
+
+  .edit-form-container {
+    padding: 20px;
+  }
+
+  .game-tabs {
+    flex-wrap: wrap;
+  }
+
+  .game-tab {
+    flex: 1 1 calc(50% - 5px);
+    min-width: 120px;
+  }
+
+  .profile-checkbox-grid, .profile-role-grid, .profile-agent-grid, .checkbox-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .privacy-item {
+    padding: 12px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-checkbox-grid, .profile-role-grid, .profile-agent-grid, .checkbox-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .preview-avatar {
+    width: 120px;
+    height: 120px;
+
+    i {
+      font-size: 3.5rem;
+    }
+  }
+
+  .game-tab {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+  }
+}
